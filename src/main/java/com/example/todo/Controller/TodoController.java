@@ -16,21 +16,18 @@ public class TodoController {
     @Autowired
     private TodoService service;
 
-    // add todo using DTO
     @PostMapping("/add")
-    public Todo addTodo(@RequestBody TodoDTO dto){
+    public Todo add(@RequestBody TodoDTO dto){
         return service.addTodo(dto);
     }
 
-    // get all todos
     @GetMapping("/all")
     public List<Todo> getAll(){
-        return service.getAllTodos();
+        return service.getAll();
     }
 
-    // delete todo
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable String id){
-        return service.deleteTodo(id);
+        return service.delete(id);
     }
 }

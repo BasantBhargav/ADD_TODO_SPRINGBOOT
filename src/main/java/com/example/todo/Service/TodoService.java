@@ -14,23 +14,19 @@ public class TodoService {
     @Autowired
     private TodoRepository repo;
 
-
     public Todo addTodo(TodoDTO dto){
-
-        Todo todo = new Todo();
-        todo.setTitle(dto.getTitle());
-        todo.setDescription(dto.getDescription());
-
-        return repo.save(todo);
+        Todo t=new Todo();
+        t.setTitle(dto.getTitle());
+        t.setDescription(dto.getDescription());
+        return repo.save(t);
     }
 
-    public List<Todo> getAllTodos(){
+    public List<Todo> getAll(){
         return repo.findAll();
     }
 
-
-    public String deleteTodo(String id){
+    public String delete(String id){
         repo.deleteById(id);
-        return "Todo Deleted Successfully";
+        return "Deleted";
     }
 }

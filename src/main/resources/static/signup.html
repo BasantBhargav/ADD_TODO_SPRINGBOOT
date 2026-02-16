@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+</head>
+<body>
+
+<h2>Signup</h2>
+
+<input id="email" placeholder="Email"><br><br>
+<input id="pass" placeholder="Password"><br><br>
+<button onclick="signup()">Signup</button>
+
+<p>Already account? <a href="login.html">Login</a></p>
+
+<script>
+    function signup(){
+
+    fetch("http://localhost:9090/auth/signup",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+    email:document.getElementById("email").value,
+    password:document.getElementById("pass").value
+    })
+    })
+    .then(res=>res.text())
+    .then(msg=>{
+    alert(msg);
+    if(msg==="Signup successful"){
+    window.location="login.html";
+    }
+    });
+    }
+</script>
+
+</body>
+</html>

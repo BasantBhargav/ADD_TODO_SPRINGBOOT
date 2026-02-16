@@ -5,8 +5,8 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TodoDTO {
+public class UserDTO {
 
-    private String title;
-    private String description;
+    private String email;
+    private String password;
 }
